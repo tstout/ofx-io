@@ -41,6 +41,12 @@ public class Credentials {
     /**
      * Load credentials from a properties file. It is assumed that the file
      * resides in #{user.home}
+     * The Properites file must contain:
+     *
+     * account=checking account number
+     * routing=account routing number
+     * user=your online user id
+     * pass=your password
      */
     public static Credentials fromProperties(String fName) {
 
