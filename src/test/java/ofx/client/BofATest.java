@@ -1,3 +1,5 @@
+package ofx.client;
+
 import net.sf.ofx4j.OFXException;
 import net.sf.ofx4j.client.AccountStatement;
 import net.sf.ofx4j.client.BankAccount;
@@ -8,8 +10,6 @@ import net.sf.ofx4j.client.impl.FinancialInstitutionServiceImpl;
 import net.sf.ofx4j.domain.data.banking.AccountType;
 import net.sf.ofx4j.domain.data.banking.BankAccountDetails;
 import net.sf.ofx4j.domain.data.common.Transaction;
-import ofx.client.BoaData;
-import ofx.client.Credentials;
 import org.junit.Test;
 
 import java.util.Date;
@@ -20,7 +20,7 @@ import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
 
 public class BofATest {
-    @Test public void somethest() {
+    @Test public void download_from_boa() {
         BoaData data = new BoaData();
 
         OFXApplicationContextHolder.setCurrentContext(data.appContext());
