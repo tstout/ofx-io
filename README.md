@@ -10,7 +10,7 @@ toilet paper and protocol details. Ofx-io merely provides a few conveniences tha
 Caveats
 ===
 Banks don't usually document how to do this. Finding the right set of parameters to get this to work
-for your bank can be frustrating. Look at the following site for help:
+for your bank can be frustrating. Look at the following sites for help:
  http://wiki.gnucash.org/wiki/Talk:Setting_up_OFXDirectConnect_in_GnuCash_2
  http://www.ofxhome.com/ofxforum/viewtopic.php?id=47455
 
