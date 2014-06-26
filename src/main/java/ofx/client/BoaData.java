@@ -19,7 +19,7 @@ public class BoaData extends BaseFinancialInstitutionData {
     //
     // Set AppId and AppVersion...
     //
-    private final OFXApplicationContext context = new DefaultApplicationContext("QWIN", "1700");
+    public final static OFXApplicationContext CONTEXT = new DefaultApplicationContext("QWIN", "1700");
 
     public BoaData() {
         setOrganization("HAN");
@@ -36,9 +36,5 @@ public class BoaData extends BaseFinancialInstitutionData {
         } catch (MalformedURLException e) {
             throw propagate(e);
         }
-    }
-
-    public OFXApplicationContext appContext() {
-        return context;
     }
 }
