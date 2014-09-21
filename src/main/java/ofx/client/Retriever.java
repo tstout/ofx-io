@@ -1,6 +1,7 @@
 package ofx.client;
 
 import net.sf.ofx4j.OFXException;
+import net.sf.ofx4j.client.AccountStatement;
 import net.sf.ofx4j.client.BankAccount;
 import net.sf.ofx4j.client.FinancialInstitution;
 import net.sf.ofx4j.client.FinancialInstitutionData;
@@ -9,10 +10,7 @@ import net.sf.ofx4j.client.context.OFXApplicationContextHolder;
 import net.sf.ofx4j.client.impl.FinancialInstitutionServiceImpl;
 import net.sf.ofx4j.domain.data.banking.AccountType;
 import net.sf.ofx4j.domain.data.banking.BankAccountDetails;
-import net.sf.ofx4j.domain.data.common.Transaction;
-
-import java.util.Date;
-import java.util.List;
+import org.joda.time.DateTime;
 
 import static com.google.common.base.Throwables.*;
 
@@ -36,12 +34,9 @@ public class Retriever {
                 creds.pass());
     }
 
-    public List<Transaction> fetch(Date startDate, Date endDate) {
+    public AccountStatement fetch(DateTime startDate, DateTime endDate) {
         try {
-            return bankAccount
-                    .readStatement(startDate, endDate)
-                    .getTransactionList()
-                    .getTransactions();
+            return bankAccount.readStatement(startDate.toDate(), endDate.toDate());
         } catch (OFXException e) {
             throw propagate(e);
         }
