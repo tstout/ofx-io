@@ -17,6 +17,11 @@ import static com.google.common.base.Throwables.*;
 public class Retriever {
     private final BankAccount bankAccount;
 
+    public Retriever installCustomTrustStore() {
+        new Ssl().installTrustStore();
+        return this;
+    }
+
     public Retriever(FinancialInstitutionData data, OFXApplicationContext context, Credentials creds) {
         OFXApplicationContextHolder.setCurrentContext(context);
 

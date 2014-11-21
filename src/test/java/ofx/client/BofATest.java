@@ -19,6 +19,7 @@ public class BofATest {
                 new Retriever(new BoaData(),
                         BoaData.CONTEXT,
                         Credentials.fromProperties(".boa-creds.properties"))
+                        .installCustomTrustStore()
                         .fetch(now().minusDays(2), now().minusDays(1))
                         .getTransactionList()
                         .getTransactions();
@@ -31,10 +32,10 @@ public class BofATest {
         BalanceInfo balance = new Retriever(new BoaData(),
                 BoaData.CONTEXT,
                 Credentials.fromProperties(".boa-creds.properties"))
+                .installCustomTrustStore()
                 .fetch(now().minusDays(2), now().minusDays(1))
                 .getAvailableBalance();
 
         assertThat(new BigDecimal(balance.getAmount()), not(BigDecimal.ZERO));
     }
-
 }
