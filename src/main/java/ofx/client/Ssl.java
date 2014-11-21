@@ -11,7 +11,7 @@ import static com.google.common.io.Resources.*;
 import static java.lang.System.*;
 
 class Ssl {
-    private static final File file = new File(getProperty("user.home"), ".ofx-io/trust-store");
+    private static final File TS_FILE = new File(getProperty("user.home"), ".ofx-io/trust-store");
     //
     // As of 11/15/2014 - https://ofx.bankofamerica.com is missing an intermediate cert.
     // The code here is a work-around for this problem by creating an app-specific
@@ -22,16 +22,16 @@ class Ssl {
     // many other alternatives. Perhaps BOA will fix their cert someday!
     //
     void installTrustStore() {
-        if (!file.exists()) {
+        if (!TS_FILE.exists()) {
             copyTrustStore();
         }
-        setProperty("javax.net.ssl.trustStore", file.getAbsolutePath());
+        setProperty("javax.net.ssl.trustStore", TS_FILE.getAbsolutePath());
     }
 
     private void copyTrustStore() {
         try {
-            Files.createParentDirs(file);
-            copy(getResource("trust-store"), new FileOutputStream(file));
+            Files.createParentDirs(TS_FILE);
+            copy(getResource("trust-store"), new FileOutputStream(TS_FILE));
         } catch (IOException e) {
             throw propagate(e);
         }
