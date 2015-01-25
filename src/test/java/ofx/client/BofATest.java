@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.*;
-import static org.joda.time.DateTime.*;
+import static org.joda.time.LocalDate.*;
 import static org.junit.Assert.*;
 
 public class BofATest {

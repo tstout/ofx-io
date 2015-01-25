@@ -10,7 +10,7 @@ import net.sf.ofx4j.client.context.OFXApplicationContextHolder;
 import net.sf.ofx4j.client.impl.FinancialInstitutionServiceImpl;
 import net.sf.ofx4j.domain.data.banking.AccountType;
 import net.sf.ofx4j.domain.data.banking.BankAccountDetails;
-import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
 
 import static com.google.common.base.Throwables.*;
 
@@ -39,7 +39,7 @@ public class Retriever {
                 creds.pass());
     }
 
-    public AccountStatement fetch(DateTime startDate, DateTime endDate) {
+    public AccountStatement fetch(LocalDate startDate, LocalDate endDate) {
         try {
             return bankAccount.readStatement(startDate.toDate(), endDate.toDate());
         } catch (OFXException e) {

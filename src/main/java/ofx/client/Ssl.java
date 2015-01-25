@@ -21,6 +21,9 @@ class Ssl {
     // system property. This seems like a bit of a hack, however it is simpler than
     // many other alternatives. Perhaps BOA will fix their cert someday!
     //
+    // Note:
+    // https://ssltools.websecurity.symantec.com/checker/views/certCheck.jsp
+    //
     void installTrustStore() {
         if (!TS_FILE.exists()) {
             copyTrustStore();
